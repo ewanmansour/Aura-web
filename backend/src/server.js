@@ -82,6 +82,10 @@ app.use(
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.get("/", (_req, res) => {
+  res.json({ message: "Aura API is active and running.", health: "/api/health" });
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true, service: "aura-api" });
 });
